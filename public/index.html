@@ -162,10 +162,10 @@
     <script>
         var socket = io.connect('http://localhost:5000');
         var me = {};
-        me.avatar = "https://pbs.twimg.com/profile_images/731022685942218752/oYq9YG3E_400x400.jpg";
+        me.avatar = "https://i.pinimg.com/originals/7e/7a/26/7e7a26d446cc7c623a22c3ec97a170db.png";
 
         var you = {};
-        you.avatar = "https://i.pinimg.com/originals/7e/7a/26/7e7a26d446cc7c623a22c3ec97a170db.png";
+        you.avatar = "https://pbs.twimg.com/profile_images/731022685942218752/oYq9YG3E_400x400.jpg";
 
         function formatAMPM(date) {
             var hours = date.getHours();
@@ -228,7 +228,7 @@
 
                     if (text !== "") {
                         socket.emit('MyChatMsg', { msg: text });
-                        insertChat("me", text);
+                        insertChat("you", text);
 
                         $(this).val('');
 
@@ -245,14 +245,12 @@
                 var WikiAPI = data.replay_msg.substr(5);
                 WikiCall(WikiAPI);
             } else {
-                insertChat("you", data.replay_msg, 1500);
+                insertChat("me", data.replay_msg, 1500);
             }
         });
         function WikiCall(url) {
             $.get(url, function (data, status) {
-                console.log(data);
-                insertChat("you", data.extract_html, 1500);
-
+                insertChat("me", data.extract_html, 1500);
             });
         }
     </script>
