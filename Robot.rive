@@ -1,2 +1,125 @@
+// Substitutions Words
+! sub i'm     = i am
+! sub i'd     = i would
+! sub i've    = i have
+! sub i'll    = i will
+! sub don't   = do not
+! sub isn't   = is not
+! sub you'd   = you would
+! sub you're  = you are
+! sub you've  = you have
+! sub you'll  = you will
+! sub what's  = what is
+! sub whats   = what is
+! sub what're = what are
+! sub what've = what have
+! sub what'll = what will
+! sub who's   = who is
+//Storing Colors
+! array colors = red blue green yellow
+
 + hello
 - hello
+
+//Random Reply
+
++ how are you
+- I'm great, how are you?
+- I'm good, you?
+- Good :) you?
+- Great! You?
+- I'm fine, thanks for asking!
+
+
++ what is up
+- Not much, you?
+- nm, you?
+- Not a lot, you?
+
+
+// Get Key words
++ my name is *
+- Nice to meet you, <star1>!
+
+
++ * told me to say *
+- Why would <star1> tell you to say "<star2>"?
+- Did you say "<star2>" after <star1> told you to?
+
++ i am * years old
+- A lot of people are <star1> years old.
+
+
++ tell me a poem
+- Little Miss Muffit sat on her tuffet,\n
+^ In a nonchalant sort of way.\n
+^ With her forcefield around her,\n
+^ The Spider, the bounder,\n
+^ Is not in the picture today.
+
+
+//Catch-All Trigger :  Remember back in "Hello, Human!" where the bot would say "ERR: No Reply Matched" 
+//whenever we said something it couldn't reply to? Well, we can remedy this by writing a catch-all trigger.
+
++ *
+- I'm not sure how to reply to that.
+- Try asking your question a different way.
+- Let's change the subject.
+
+
+
+//Specialized Wildcards 
+
++ i am # years old
+- A lot of people are <star> years old.
+
++ i am _ years old
+- Tell me that again but with a number this time.
+
++ i am * years old
+- Can you use a number instead?
+
+//Alternatives and Optionals
+//Example 1 :
++ what is your (home|office|cell) number
+- You can reach me at: 1 (800) 555-1234.
+
++ i am (really|very|super) tired
+- I'm sorry to hear that you are <star> tired.
+
++ i (like|love) the color *
+- What a coincidence! I <star1> that color too!
+- I also have a soft spot for the color <star2>!
+- Really? I <star1> the color <star2> too!
+- Oh I <star1> <star2> too!
+
+//Example 2 :
++ i (will|will not) *
+- It doesn't matter to me whether you <star2> or not.
+
+
+//Arrays in Triggers
++ what color is my (@colors) *
+- Your <star2> is <star1>, silly!
+- Do I look dumb to you? It's <star1>!
+
++ i am wearing a (@colors) shirt
+- Do you really like <star>?
+
+//Priority Triggers
+
++ google *
+- Google search: <a href="http://google.com/search?q=<star>">Click Here</a>
+
+//Conditionals
++ this is *
+- <set name=<star>>It's nice to meet you, <get name>.
+
++ what is my name
+- Your name is <get name>, silly!
+
++ my age is # years old
+- <set age=<star>>I will remember that you are <get age> years old.
+
++ how old am i
+- You are <get age> years old.
