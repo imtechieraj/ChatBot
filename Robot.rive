@@ -36,12 +36,6 @@
 - nm, you?
 - Not a lot, you?
 
-
-// Get Key words
-+ my name is *
-- Nice to meet you, <star1>!
-
-
 + * told me to say *
 - Why would <star1> tell you to say "<star2>"?
 - Did you say "<star2>" after <star1> told you to?
@@ -112,7 +106,7 @@
 - Google search: <a href="http://google.com/search?q=<star>">Click Here</a>
 
 //Conditionals
-+ this is *
++ my name is *
 - <set name=<star>>It's nice to meet you, <get name>.
 
 + what is my name

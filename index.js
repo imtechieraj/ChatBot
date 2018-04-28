@@ -1,3 +1,4 @@
+//Chat bot for command promt Interface
 const Readline = require('readline');
 const Chalk = require('chalk');
 const RiveScript = require('rivescript');

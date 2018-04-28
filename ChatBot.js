@@ -1,0 +1,26 @@
+//Chat bot for Website Interface
+const Readline = require('readline');
+const Chalk = require('chalk');
+const RiveScript = require('rivescript');
+const app = require('express')();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+
+server.listen(5000);
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/public/index.html');
+});
+
+const bot = new RiveScript();
+bot.loadFile('./Robot.rive', function () {
+    bot.sortReplies();
+}, function (error) {
+    console.log("Error reading file" + error);
+});
+
+io.on('connection', function (socket) {
+    socket.on('MyChatMsg', function (data) {
+        var replay = bot.reply('local-user', data.msg);
+        socket.emit('Reply', { replay_msg: replay });
+    });
+});
