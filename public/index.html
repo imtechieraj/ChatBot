@@ -161,10 +161,6 @@
     </style>
     <script>
         var socket = io.connect('http://localhost:5000');
-        // socket.on('news', function (data) {
-        //     console.log(data);
-        //     socket.emit('my other event', { my: 'data' });
-        // });
         var me = {};
         me.avatar = "https://pbs.twimg.com/profile_images/731022685942218752/oYq9YG3E_400x400.jpg";
 
@@ -182,7 +178,7 @@
             return strTime;
         }
 
-        //-- No use time. It is a javaScript effect.
+
         function insertChat(who, text, time) {
             if (time === undefined) {
                 time = 0;
@@ -220,17 +216,7 @@
         function resetChat() {
             $("ul").empty();
         }
-
-        //-- Clear Chat
         resetChat();
-
-        //-- Print Messages
-        // insertChat("me", "Hello Tom...", 0);
-        // insertChat("you", "Hi, Pablo", 1500);
-        // insertChat("me", "What would you like to talk about today?", 3500);
-        // insertChat("you", "Tell me a joke", 7000);
-        // insertChat("me", "Spaceman: Computer! Computer! Do we bring battery?!", 9500);
-        // insertChat("you", "LOL", 12000);
 
         $(document).ready(function () {
 
@@ -254,8 +240,21 @@
 
         });
         socket.on('Reply', function (data) {
-            insertChat("you", data.replay_msg, 1500);
+            var Get_Keyword = data.replay_msg.slice(0, 4);
+            if (Get_Keyword === "wiki") {
+                var WikiAPI = data.replay_msg.substr(5);
+                WikiCall(WikiAPI);
+            } else {
+                insertChat("you", data.replay_msg, 1500);
+            }
         });
+        function WikiCall(url) {
+            $.get(url, function (data, status) {
+                console.log(data);
+                insertChat("you", data.extract_html, 1500);
+
+            });
+        }
     </script>
 </head>
 

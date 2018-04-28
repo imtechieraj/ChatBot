@@ -51,6 +51,8 @@
 ^ The Spider, the bounder,\n
 ^ Is not in the picture today.
 
++ what is meant by computer
+- computer
 
 //Catch-All Trigger :  Remember back in "Hello, Human!" where the bot would say "ERR: No Reply Matched" 
 //whenever we said something it couldn't reply to? Well, we can remedy this by writing a catch-all trigger.
@@ -117,3 +119,7 @@
 
 + how old am i
 - You are <get age> years old.
+
+//Wiki Call 
+ + wiki *
+- wiki https://en.wikipedia.org/api/rest_v1/page/summary/<star>
