@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<title>Chat Bot Application</title>
+
 <head>
     <script src="lib/js/jquery-1.11.1.min.js"></script>
     <script src="lib/js/jquery-ui.min.js"></script>
@@ -11,9 +13,21 @@
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="css/style.css" rel="stylesheet" id="bootstrap-css">
 </head>
+
 <body>
     <div class="col-sm-3 col-sm-offset-4 frame">
-        <ul></ul>
+        <ul>
+            <!-- Slider section  -->
+            <div class="w3-content w3-display-container">
+                <img class="mySlides" src="https://www.w3schools.com/w3css/img_fjords.jpg" style="width:100%">
+                <img class="mySlides" src="https://www.w3schools.com/w3css/img_mountains.jpg" style="width:100%">
+                <img class="mySlides" src="https://www.w3schools.com/w3css/img_lights.jpg" style="width:100%">
+                <center>
+                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                </center>
+            </div>
+        </ul>
         <div>
             <div class="msj-rta macro">
                 <div class="text text-r" style="background:whitesmoke !important">
@@ -25,6 +39,25 @@
             </div>
         </div>
     </div>
+    <script>
+        //Slider Script -- > Start
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+        //Slider Script -- > End
+    </script>
 </body>
 
 </html>
