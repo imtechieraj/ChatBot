@@ -2,9 +2,12 @@
 const Readline = require('readline');
 const Chalk = require('chalk');
 const RiveScript = require('rivescript');
+const express = require('express');
 const app = require('express')();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 
 server.listen(5000);
 app.get('/', function (req, res) {
