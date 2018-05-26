@@ -1,6 +1,5 @@
 const BotSpeech = new p5.Speech();
 const socket = io.connect('http://localhost:5000');
-
 //Bot and human DP
 const me = {avatar:"https://i.pinimg.com/originals/7e/7a/26/7e7a26d446cc7c623a22c3ec97a170db.png"};
 const you = {avatar:"https://pbs.twimg.com/profile_images/731022685942218752/oYq9YG3E_400x400.jpg"};
@@ -80,21 +79,6 @@ $(document).ready(function () {
 
 //Reply message Trigger function-- > Start
 socket.on('Reply', function (data) {
-    var Get_Keyword = data.replay_msg.slice(0, 4);
-    if (Get_Keyword === "wiki") {
-        var WikiAPI = data.replay_msg.substr(5);
-        WikiCall(WikiAPI);
-    } else {
-        insertChat("me", data.replay_msg, 1500);
-    }
+    insertChat("me", data.replay_msg, 1500);
 });
-//Reply message Trigger function-- > End
 
-//Wiki API call-- > Start
-
-function WikiCall(url) {
-    $.get(url, function (data, status) {
-        insertChat("me", data.extract_html, 1500);
-    });
-}
-//Wiki API call-- > End
