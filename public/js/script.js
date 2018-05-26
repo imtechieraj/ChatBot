@@ -79,6 +79,7 @@ $(document).ready(function () {
 
 //Reply message Trigger function-- > Start
 socket.on('Reply', function (data) {
+    console.log(data.replay_msg)
     insertChat("me", data.replay_msg, 1500);
 });
 

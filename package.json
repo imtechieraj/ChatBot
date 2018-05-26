@@ -15,7 +15,10 @@
   "homepage": "https://bitbucket.org/siamraj/botapplication#readme",
   "dependencies": {
     "chalk": "^2.4.1",
+    "clarifai": "^2.7.1",
+    "connect-multiparty": "^2.1.0",
     "express": "^4.16.3",
+    "mv": "^2.1.1",
     "path": "^0.12.7",
     "readline": "^1.3.0",
     "request": "^2.87.0",
