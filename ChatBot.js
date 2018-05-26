@@ -1,6 +1,4 @@
 //Chat bot for Website Interface
-const Readline = require('readline');
-const Chalk = require('chalk');
 const RiveScript = require('rivescript');
 const express = require('express');
 const app = require('express')();
