@@ -14,29 +14,21 @@
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="css/style.css" rel="stylesheet" id="bootstrap-css">
     <script>
-        var myRec = new p5.SpeechRec(); // new P5.SpeechRec object
+
         function setup() {
-            // graphics stuff:
-            createCanvas(800, 400);
-            background(255, 255, 255);
-            fill(0, 0, 0, 255);
-            // instructions:
-            textSize(32);
-            textAlign(CENTER);
-            text("say something", width / 2, height / 2);
-            myRec.onResult = showResult;
+            let lang = navigator.language || 'en-US';
+            var myRec = new p5.SpeechRec(lang); // new P5.SpeechRec object
+            myRec.continuous = true;
             myRec.start();
-        }
-
-        function draw() {
-            // why draw when you can talk?
-        }
-
-        function showResult() {
-            if (myRec.resultValue == true) {
-                background(192, 255, 192);
-                text(myRec.resultString, width / 2, height / 2);
-                console.log(myRec.resultString);
+            myRec.onResult = showResult;
+            function showResult() {
+                if (myRec.resultValue) {
+                    // background(192, 255, 192);
+                    // text(myRec.resultString, width / 2, height / 2);
+                    socket.emit('MyChatMsg', { msg: myRec.resultString });
+                    insertChat("you", myRec.resultString);
+                    $(this).val('');
+                }
             }
         }
     </script>
