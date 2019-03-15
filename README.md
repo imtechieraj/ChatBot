@@ -1,14 +1,48 @@
-# README #
+# ChatBot
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Developed by Rajkumar
 
-### What is this repository for? ###
-### Chat Bot ###
+A chatbox is a program that can simulate talk with a human being. If you speak to your bot It will be response. Hope me.! It will be awesome.
+# New Features!
+  - This chat application has been integrated wikipedia API.
+  - You can talk It will be response
+  - You can chat It will be response
 
-A chatterbot is a program that can simulate talk with a human being. One of the first and most famous chatterbots (prior to the Web) was Eliza, a program that pretended to be a psychotherapist and answered questions with other questions.
+### Tech
 
-Red and Andrette were names of two early programs that could be customized to answer questions from users seeking service for a product. Such a program is sometimes called a virtual representative or a virtual service agent.
+* [Jquery] - It's using HTML document traversal and manipulation, event handling, animation
+* Socket.io - It's using chat application
+* Nodejs.org - Serverside language
 
-A shopbot is a program that shops around the Web on your behalf and locates the best price for a product you're looking for. There are also bots such as OpenSesame that observe a user's patterns in navigating a Web site and customize the site for that user.
 
-A knowbot is a program that collects knowledge for a user by automatically visiting Internet sites and gathering information that meets certain specified criteria.
+### How to use
+
+##### step-1
+
+```sh
+git clone https://github.com/thisisrajkumar/ChatBot.git
+```
+
+##### step-2
+
+```sh
+cd ChatBot
+```
+##### step-3
+
+```sh
+npm install
+```
+
+##### step-4
+
+```sh
+node ChatBot.js
+```
+
+##### step-4
+
+```sh
+localhost:5000
+```
+### Enjoy ...!
